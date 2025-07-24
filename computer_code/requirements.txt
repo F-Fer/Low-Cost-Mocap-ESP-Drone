@@ -1,7 +1,26 @@
+# Core dependencies
 opencv-python==4.11.0.86
-numpy~=2.2.5
+numpy~=2.2.0
 scipy>=1.9.0
+
+# Web framework
 flask
-flask_socketio
-flask_cors
+flask-socketio
+flask-cors
 eventlet
+
+# Data processing and visualization
+matplotlib>=3.0.0
+pandas>=2.0.0
+pillow>=11.0.0
+
+# Hardware communication
+pyserial>=3.5
+
+# Configuration and utilities
+PyYAML>=6.0.0
+
+# Optional specialized packages
+pseyepy==0.0
+ruckig>=0.15.0
+statsmodels>=0.14.0
