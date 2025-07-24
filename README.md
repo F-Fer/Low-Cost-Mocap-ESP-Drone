@@ -1,29 +1,63 @@
-# Low Cost Mocap (for ESP-32 drones)
+# Low-Cost Mocap for ESP32 Drones
 
-### A general purpose motion capture system built from the ground up, used to autonomously fly multiple drones indoors
+**A general-purpose motion capture system for autonomous indoor drone flight**
 
-This project is a fork of Joshua Birds awesome Low Cost Mocap project: [https://github.com/jyjblrd/Low-Cost-Mocap/tree/main](GitHub)
-It expands the project by tracking affordabel esp32 drones and it does not need the open-cv sfm package. 
+This project extends [Joshua Bird's Low-Cost Mocap](https://github.com/jyjblrd/Low-Cost-Mocap) to track affordable ESP32 drones without requiring OpenCV's SfM module.
 
-## YouTube Video
-Watch this demo video!
-[https://youtu.be/-AZVHd_bZnI](https://youtu.be/-AZVHd_bZnI)
+## Demo Video
 
-[<img src="images/lcm-thumbnail.jpg">](https://youtu.be/0ql20JKrscQ?si=jkxyOe-iCG7fa5th)
+[![Demo Video](images/lcm-thumbnail.jpg)](https://youtu.be/-AZVHd_bZnI)
 
-## Dependencies
-Install the pseyepy python library: [https://github.com/bensondaled/pseyepy](https://github.com/bensondaled/pseyepy)
+## Quick Start
 
-This project **does not** require the sfm (structure from motion) OpenCV module. The calculations are all done using the standard open-cv python distribution.
+### Prerequisites
+- Python 3.8+
+- Node.js 18+
 
-install npm and nextJs
+### Installation
 
-## Runing the code
+1. **Install the pseyepy Library:** [https://github.com/bensondaled/pseyepy](https://github.com/bensondaled/pseyepy)
 
-From the computer_code/frontend directory run `npm install` to install node dependencies 
+2. **Install Python dependencies**
+   ```bash
+   cd computer_code
+   pip install -r requirements.txt
+   ```
 
-Then run `npm run dev` to start the webserver. You will be given a url view the frontend interface.
+3. **Install frontend dependencies**
+   ```bash
+   cd frontend
+   npm install
+   ```
 
-In another terminal window, run `python3 src/api.py` to start the backend server. This is what receives the camera streams and does motion capture computations.
+### Running the System
+
+1. **Start the frontend** (in `computer_code/frontend/`)
+   ```bash
+   npm run dev
+   ```
+   Access the web interface at the provided URL (typically `http://localhost:3000`)
+
+2. **Start the backend** (in `computer_code/`)
+   ```bash
+   python src/api.py
+   ```
+
+## Project Structure
+
+```
+├── computer_code/           # Main software
+│   ├── src/                # Python backend
+│   ├── frontend/           # Next.js web interface  
+│   ├── scripts/            # Calibration utilities
+│   └── poses/             # Recorded tracking data
+├── sender_esp32/           # ESP32 drone firmware
+├── receiver_esp32/         # ESP32 receiver firmware
+└── 3d_files/              # STL files for camera mounts
+```
+
+---
+
+*Based on the original work by [Joshua Bird](https://github.com/jyjblrd/Low-Cost-Mocap)*
 
 
